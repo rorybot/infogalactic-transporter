@@ -1,16 +1,28 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension allows the user to change the background color of the current page.",
-  "version": "1.0",
+  "name": "Infogalactic Transporter",
+  "description": "This extension allows the user to move between Wiki and IG.",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    /* "default_popup": "popup.html", */
+    "default_title": "Get me outta here!"
   },
   "permissions": [
     "activeTab",
     "storage"
-  ]
+  ],
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["jquery-3.3.1.min.js","redirect.js"]
+  }
+]
 }
