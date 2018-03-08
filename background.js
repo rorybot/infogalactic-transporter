@@ -6,7 +6,13 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     var activeTab = tabs[0];
     var currentURL = activeTab.url
     chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": currentURL});
-    console.log(currentURL, "is what it is")
+    console.log(currentURL, "is what it is");
+
+    if(currentURL.includes('wikipedia.org')){
+      console.log("I'm on wikipedia")
+    }
+
+
   });
 
 });
