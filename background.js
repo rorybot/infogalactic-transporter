@@ -4,9 +4,14 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   // Send a message to the active tab
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
-    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+    var currentURL = activeTab.url
+    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": currentURL});
+    console.log(currentURL, "is what it is")
   });
+
 });
+
+
 
 // This block is new!
 chrome.runtime.onMessage.addListener(
