@@ -5,10 +5,12 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
     var currentURL = activeTab.url
-    var wikiIdentifier = 'en.wikipedia.org/wiki'
+    var wikiIdentifier = 'wikipedia.org/wiki'
     var igIdentifier = 'infogalactic.com/info'
 
     if(currentURL.includes(wikiIdentifier)){
+      currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
+      console.log(currentURL)
       var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
           chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": igURL});
     }
