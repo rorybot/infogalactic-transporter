@@ -5,12 +5,20 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
     var currentURL = activeTab.url
-    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": currentURL});
-    console.log(currentURL, "is what it is");
+    var wikiIdentifier = 'en.wikipedia.org/wiki'
+    var igIdentifier = 'infogalactic.com/info'
 
-    if(currentURL.includes('wikipedia.org')){
-      console.log("I'm on wikipedia")
+    if(currentURL.includes(wikiIdentifier)){
+      var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
+          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": igURL});
     }
+    if(currentURL.includes(igIdentifier)){
+      var wikiURL = currentURL.replace(igIdentifier, wikiIdentifier)
+          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": wikiURL});
+    }
+
+
+
 
 
   });
