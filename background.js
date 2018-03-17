@@ -12,12 +12,19 @@ chrome.browserAction.onClicked.addListener(function(tab) {
       currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
       console.log(currentURL)
       var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
-          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": igURL});
+          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "redirectedURL": igURL});
     }
+
     if(currentURL.includes(igIdentifier)){
       var wikiURL = currentURL.replace(igIdentifier, wikiIdentifier)
-          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "currentURL": wikiURL});
+          chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action", "redirectedURL": wikiURL});
     }
+
+
+
+    // console.log(urlChoices.indexOf(currentURL))
+    // console.log(Number.isInteger(urlChoices.indexOf(currentURL)))
+
 
 
 
@@ -28,12 +35,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 
-
-// This block is new!
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "open_new_tab" ) {
-      chrome.tabs.create({"url": request.url});
+      chrome.tabs.update({"url": request.url});
       console.log('bob')
     }
   }
