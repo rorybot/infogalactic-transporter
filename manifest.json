@@ -17,7 +17,10 @@
   "permissions": [
     "activeTab",
     "storage",
-    "tabs"
+    "tabs",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "content_scripts": [
   {
