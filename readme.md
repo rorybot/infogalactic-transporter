@@ -25,3 +25,4 @@ And install!
 Not exactly plans, but hopes for the future:
 
 - As a user and contributor, allow that person to quickly grab the wiki-marked up text from a Wikipedia page, to quickly and easily grab missing text in the marked-up version, so that they can easily update the corresponding IG page.
+- Port to IE, Safari and Firefox (Brave doesn't allow 3rd party extensions, for now)
