@@ -5,7 +5,7 @@ There used to exist an extension in the Chrome webstore, called Infosextant, whi
 
 I was unhappy with the original behaviour, however. Sometimes the IG page was missing, or missing new details. It was an annoying process to open up an Incognito window (with extension disabled) in order to get to Wikipedia. 
 
-So, I added functionality such that. when clicking the extension button, you can go back to Wikipedia, if you so desire. And, upon clicking the button again, it takes you back to IG. You can go back and forth to your heart's content!
+So, I added functionality such that, when clicking the extension button, you can go back to Wikipedia, if you so desire. And, upon clicking the button again, it takes you back to IG. You can go back and forth to your heart's content!
 
 # Installation
 
