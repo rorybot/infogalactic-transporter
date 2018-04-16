@@ -26,7 +26,8 @@ chrome.browserAction.onClicked.addListener(
           chrome.tabs.update({'url': wikiURL})
         }
       })
-  })
+  }
+)
 
 chrome.webRequest.onBeforeRequest.addListener(
   function (details) {
@@ -39,7 +40,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       }
     }
   },
-  {urls: ['*://*.wikipedia.org/*'], types: ['main_frame']},
+  {urls: ['*://*.wikipedia.org/*'], types: ['main_frame', 'sub_frame', 'stylesheet', 'script', 'image', 'object', 'xmlhttprequest', 'other']},
   ['blocking']
 )
 
