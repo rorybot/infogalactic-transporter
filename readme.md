@@ -12,6 +12,10 @@ So, I added functionality such that, when clicking the extension button, you can
 Simply go to the Chrome webstore:
 https://chrome.google.com/webstore/detail/infogalactic-transporter/majmoinlepbjapaaljlhlfhlmbblaeip
 
+or the Firefox one:
+
+https://addons.mozilla.org/en-GB/firefox/addon/infogalactic-transporter/
+
 And install!
 
 ## Behaviour
