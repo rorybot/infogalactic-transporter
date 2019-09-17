@@ -1,8 +1,10 @@
 var wikiIdentifier = 'wikipedia.org/wiki'
 var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
+var sourceURL //declare source url for storing url to go back to.
 
 function prepForEntry (url) {
+	sourceURL=url // remember source url
 	url = url.replace('.m', '') // Sanitise Mobile sites.
   return url.replace(/https:\/\/.+?\./, 'https://')
 }
@@ -20,14 +22,14 @@ chrome.browserAction.onClicked.addListener(
 
       if (currentURL.includes(wikiIdentifier)) {
 			currentURL = currentURL.replace('.m', '') // Sanitise Mobile sites.
+	                sourceURL = currentURL // remember source url
 			currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
 			var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
 			chrome.tabs.update({'url': igURL})
 			}
 
         if (currentURL.includes(igIdentifier)) {
-          var wikiURL = currentURL.replace(igIdentifier, wikiIdentifier)
-          chrome.tabs.update({'url': wikiURL})
+          chrome.tabs.update({'url': sourceURL})
         }
       })
   }
