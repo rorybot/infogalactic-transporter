@@ -3,6 +3,7 @@ var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
 
 function prepForEntry (url) {
+  url = url.replace('.m', '') // Sanitise Mobile sites.
   return url.replace(/https:\/\/.+?\./, 'https://')
 }
 
@@ -16,6 +17,7 @@ browser.browserAction.onClicked.addListener(
         redirectedArray[activeTab.id] = 'disallowRedirect'
 
         if (currentURL.includes(wikiIdentifier)) {
+          currentURL = currentURL.replace('.m', '') // Sanitise Mobile sites.
           currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
           var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
           browser.tabs.update({'url': igURL})
