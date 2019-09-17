@@ -3,8 +3,10 @@ var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
 
 function prepForEntry (url) {
+	url = url.replace('.m', '') // Sanitise Mobile sites.
   return url.replace(/https:\/\/.+?\./, 'https://')
 }
+
 
 chrome.browserAction.onClicked.addListener(
   function (tab) {
@@ -15,11 +17,13 @@ chrome.browserAction.onClicked.addListener(
         var currentURL = activeTab.url
         redirectedArray[activeTab.id] = 'disallowRedirect'
 
-        if (currentURL.includes(wikiIdentifier)) {
-          currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
-          var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
-          chrome.tabs.update({'url': igURL})
-        }
+
+      if (currentURL.includes(wikiIdentifier)) {
+			currentURL = currentURL.replace('.m', '') // Sanitise Mobile sites.
+			currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
+			var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
+			chrome.tabs.update({'url': igURL})
+			}
 
         if (currentURL.includes(igIdentifier)) {
           var wikiURL = currentURL.replace(igIdentifier, wikiIdentifier)
