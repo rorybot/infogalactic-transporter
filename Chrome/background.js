@@ -4,8 +4,8 @@ var redirectedArray = {}
 var sourceURL //declare source url for storing url to go back to.
 
 function prepForEntry (url) {
-	sourceURL=url // remember source url
 	url = url.replace('.m', '') // Sanitise Mobile sites.
+	sourceURL=url // remember source url
   return url.replace(/https:\/\/.+?\./, 'https://')
 }
 
