@@ -2,8 +2,8 @@ var wikiIdentifier = 'wikipedia.org/wiki'
 var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
 
-function replace_url(url, wikipedia_fragment, infogalactic_fragment){
-	return url.replace(new RegExp('https:\/\/(|en\.|www\.)' + wikipedia_fragment), 'https://' + infogalactic_fragment);
+function replace_url (url, wikipedia_fragment, infogalactic_fragment) {
+  return url.replace(new RegExp('https:\/\/(|en\.|www\.)' + wikipedia_fragment), 'https://' + infogalactic_fragment)
 };
 
 chrome.browserAction.onClicked.addListener(
@@ -17,12 +17,12 @@ chrome.browserAction.onClicked.addListener(
 
         if (currentURL.includes(wikiIdentifier)) {
           var igURL = replace_url(currentURL, wikiIdentifier, igIdentifier)
-          chrome.tabs.update({'url': igURL})
+          return chrome.tabs.update({'url': igURL})
         }
 
         if (currentURL.includes(igIdentifier)) {
           var wikiURL = currentURL.replace(igIdentifier, wikiIdentifier)
-          chrome.tabs.update({'url': wikiURL})
+          return chrome.tabs.update({'url': wikiURL})
         }
       })
   }
