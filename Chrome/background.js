@@ -2,9 +2,9 @@ var wikiIdentifier = 'wikipedia.org/wiki'
 var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
 
-function prepForEntry (url) {
-  return url.replace(/https:\/\/.+?\./, 'https://')
-}
+function replace_url(url, wikipedia_fragment, infogalactic_fragment){
+	return url.replace(new RegExp('https:\/\/(|en\.|www\.)' + wikipedia_fragment), 'https://' + infogalactic_fragment);
+};
 
 chrome.browserAction.onClicked.addListener(
   function (tab) {
@@ -16,8 +16,7 @@ chrome.browserAction.onClicked.addListener(
         redirectedArray[activeTab.id] = 'disallowRedirect'
 
         if (currentURL.includes(wikiIdentifier)) {
-          currentURL = currentURL.replace(/https:\/\/.+?\./, 'https://')
-          var igURL = currentURL.replace(wikiIdentifier, igIdentifier)
+          var igURL = replace_url(currentURL, wikiIdentifier, igIdentifier)
           chrome.tabs.update({'url': igURL})
         }
 
@@ -36,7 +35,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     }
     if (redirectedArray[details.tabId] === 'allowRedirect') {
       return {
-        redirectUrl: prepForEntry(details.url).replace(wikiIdentifier, igIdentifier)
+        redirectUrl: replace_url(details.url, wikiIdentifier, igIdentifier)
       }
     }
   },
