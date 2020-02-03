@@ -46,7 +46,6 @@ chrome.webRequest.onBeforeRequest.addListener(
 chrome.tabs.onUpdated.addListener(
   function (tabid, changeInfo, tab) {
     if (changeInfo.status === 'complete') {
-      console.log(redirectedArray)
       if (!tab.url.includes(wikiIdentifier) && !tab.url.includes(igIdentifier)) {
         redirectedArray[tabid] = 'allowRedirect'
       }
