@@ -10,9 +10,17 @@
   "background": {
     "scripts": ["background.js"]
   },
-
   "browser_action": {
-    "default_title": "Get me outta here!"
+    "default_title": "Get me outta here!",
+    "theme_icons": [{
+      "light": "./images/IW-16-light.png",
+      "dark": "./images/IW-16.png",
+      "size": 16
+    }, {
+      "light": "./images/IW-48-light.png",
+      "dark": "./images/IW-48.png",
+      "size": 48
+    }]
   },
   "permissions": [
     "activeTab",
