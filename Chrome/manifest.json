@@ -6,7 +6,7 @@
   "icons": { "16": "./images/IW-16.png",
            "48": "./images/IW-48.png",
           "128": "./images/IW-128.png" },
-  "version": "1.4",
+  "version": "1.5",
   "background": {
     "scripts": ["background.js"]
   },
