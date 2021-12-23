@@ -26,7 +26,4 @@ And install!
 
 ## The Future
 
-Not exactly plans, but hopes for the future:
-
-- As a user and contributor, allow that person to quickly grab the wiki-marked up text from a Wikipedia page, to quickly and easily grab missing text in the marked-up version, so that they can easily update the corresponding IG page.
-- Port to IE, Safari (Brave doesn't allow 3rd party direct submission of extensions, for now, so I'm looking into that)
+- I still use this extension daily, but a frustration is sometimes I want to just look at the most up-to-date version, not looking for an archived copy. So, gonna add the option to toggle behaviour off and on with a right-click option. Option will persist until turned off again.
