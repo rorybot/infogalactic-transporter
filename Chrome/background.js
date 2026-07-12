@@ -1,10 +1,27 @@
 var wikiIdentifier = 'wikipedia.org/wiki'
 var igIdentifier = 'infogalactic.com/info'
 var redirectedArray = {}
+const iconPaths = {
+  dark: {
+   '16': './images/IW-16.png',
+   '48': './images/IW-48.png',
+   '128': './images/IW-128.png'
+  },
+  light: {
+    '16': './images/IW-16-light.png',
+    '48': './images/IW-48-light.png',
+    '128': './images/IW-128-light.png'
+  }
+};
+const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 function replace_url (url, wikipedia_fragment, infogalactic_fragment) {
   return url.replace(new RegExp('https:\/\/(|en\.|www\.)' + wikipedia_fragment), 'https://' + infogalactic_fragment)
 };
+
+chrome.browserAction.setIcon({
+  path: darkMode ? iconPaths.light : iconPaths.dark
+})
 
 chrome.browserAction.onClicked.addListener(
   function (tab) {
