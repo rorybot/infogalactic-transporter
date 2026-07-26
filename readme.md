@@ -1,3 +1,5 @@
+# THIS IS NOW ABANDONWARE
+## Infogalactic no longer exists as a functional encyclopedia as far as I am aware. Nonetheless, leaving this repo up because it's something I built that I built for my own sake, that ended up getting some traction, and it flatters my ego to see.
 
 # Infogalactic Transporter
 
