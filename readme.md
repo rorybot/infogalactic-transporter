@@ -3,6 +3,9 @@
 
 # Infogalactic Transporter
 
+<img width="1119" height="1066" alt="image" src="https://github.com/user-attachments/assets/26bd6d02-fbd8-45c7-b4ab-0b6a40cc706b" />
+  
+
 There used to exist an extension in the Chrome webstore, called Infosextant, which redirected automatically from Wikipedia to Infogalactic. It disappeared. This is its replacement.
 
 I was unhappy with the original behaviour, however. Sometimes the IG page was missing, or missing new details. It was an annoying process to open up an Incognito window (with extension disabled) in order to get to Wikipedia. 
